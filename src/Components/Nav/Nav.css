@@ -1,4 +1,5 @@
 .nav {
+    display: block;
     position: sticky;
     top: 0px;
     background: white;
@@ -20,6 +21,7 @@
     display: none;
 }
 .nav-full {
+    display: block;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -69,6 +71,10 @@
 .left-button:hover {
     color: #f30;
 }
+.user-button {
+    padding: 12px;
+    color: #f30;
+}
 
 #allbuttons {
     border: none;
@@ -92,7 +98,10 @@
     font-weight: 700;
     font-size: 0.61429em;
     letter-spacing: .08em;
-    width: 280px;
+    width: 400px;
+    height: 20px;
+    margin-right: 10px;
+    padding-right: 10px;
 }
 hr {
     display: block;

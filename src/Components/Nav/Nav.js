@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "./Nav.css";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
+import {faShoppingBag} from '@fortawesome/free-solid-svg-icons';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
 
@@ -66,10 +70,12 @@ class Nav extends Component {
           <div className="navright">
             <input type="text" placeholder="Search" className="navinput" />
               <div>
-                <button onClick={this.login} id="allbuttons" className="loginbutton">Login</button>
+                {/* <button onClick={this.login} id="allbuttons" className="loginbutton">Login</button> */}
+                <FontAwesomeIcon icon={faUser} size="lg" onClick={this.login} className="user-button"/>
               </div>
             
-              <button id="allbuttons" className="bag">Bag</button>
+                <FontAwesomeIcon icon={faShoppingBag} size="lg" className="user-button"/>
+              {/* <button id="allbuttons" className="bag">Bag</button> */}
           </div>
         </div>
         <hr />
