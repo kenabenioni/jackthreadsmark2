@@ -1,0 +1,48 @@
+.clothing-section {
+    padding: 20px 40px 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.clothing-individual {
+    padding: 10px;
+}
+.clothing-individual:hover {
+    cursor: pointer;
+}
+
+.clothing-brand {
+    margin: 10px 0px 10px 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.67em;
+}
+.clothing-name {
+    margin: 12px 0px 12px 0px;
+    font-weight: 200;
+    font-size: 0.8em;
+}
+.clothing-price {
+    margin: 12px 0px 12px 0px;
+    color: #f30;
+    font-weight: 700;
+    font-size: 0.77em;
+}
+.clothing-wrapper {
+    overflow: hidden;
+}
+
+.clothing-img {
+    display: block;
+    width: 200px;
+    zoom: 0;
+    transition: transform 0.25s ease-in-out;
+    max-width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.clothing-img:hover {
+    transform: scale(1.125)
+}
