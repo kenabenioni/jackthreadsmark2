@@ -1,0 +1,142 @@
+.nav {
+    position: sticky;
+    top: 0px;
+    background: white;
+}
+.top-nav {
+    background-color: rgb(218, 216, 216);
+    margin: 0;
+    font-size: 17.5px;
+    letter-spacing: 1.1px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 200;
+    padding: 3px;
+}
+
+.nav-small {
+    display: none;
+}
+.nav-full {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+}
+
+.logotext-small {
+    width: 76px;
+}
+.logotext {
+    width: 76px;
+    padding: 20px;
+    padding-left: 30px;
+}
+.navright {
+    display: flex;
+   padding-right: 20px;
+   align-items: center;
+}
+.bag {
+    padding-bottom: 0;
+}
+.bag:hover {
+    color: #f30;
+}
+
+.loginbutton {
+    padding-bottom: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.loginbutton:hover {
+    color: #f30;
+}
+
+.navleft {
+    display: flex;
+    align-items: center;
+}
+
+.left-button {
+    padding-left: 48px;
+    padding-right: 35px;
+}
+.left-button:hover {
+    color: #f30;
+}
+
+#allbuttons {
+    border: none;
+    font-family: Graphik, Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.75429em;
+    letter-spacing: .08em;
+    outline: 0;
+    cursor: pointer;
+}
+
+
+
+
+.navinput {
+    font-family: Graphik, Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.61429em;
+    letter-spacing: .08em;
+    width: 280px;
+}
+hr {
+    display: block;
+    height: 0px;
+    border-top: 1.8px solid #f30;
+    margin: 0;
+}
+
+@media (max-width: 1200px) {
+    .nav-small {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+    .nav-full {
+        display: none;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    #allbuttons {
+        border: none;
+        font-family: Graphik, Helvetica,Arial,sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.62em;
+        letter-spacing: .08em;
+        outline: 0;
+    }
+    .navinput {
+        font-family: Graphik, Helvetica,Arial,sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.62em;
+        letter-spacing: .08em;
+        width: 200px;
+    }
+    .left-button {
+        padding-left: 35px;
+        padding-right: 30px;
+    }
+    .logotext {
+        width: 76px;
+        padding: 16px;
+        padding-left: 30px;
+    }
+  }
