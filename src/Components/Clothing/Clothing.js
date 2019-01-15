@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import "./Clothing.css";
 
 class Clothing extends Component {
@@ -17,9 +18,10 @@ class Clothing extends Component {
       }
     
     render() { 
-        console.log(this.state)
+        console.log(this.state.clothing);
         let all = this.state.clothing.map((e, i) => {
             return (
+                <Link to={`/clothing/${e.product_id}/${e.img_id}`} style={{textDecoration: 'none'}}>
                 <div key={i} className="clothing-individual">
                 <div className="clothing-wrapper">
                 <img src={e.img_url} className="clothing-img"/>
@@ -28,6 +30,7 @@ class Clothing extends Component {
                 <h4 className="clothing-name">{e.name}</h4>
                 <h4 className="clothing-price">${e.price}</h4>
                 </div>
+                </Link>
             )
         })
         return (

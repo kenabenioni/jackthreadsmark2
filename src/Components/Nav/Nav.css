@@ -70,10 +70,18 @@
 }
 .left-button:hover {
     color: #f30;
+    cursor: pointer;
+}
+.left-buttons {
+    padding-left: 48px;
+    padding-right: 35px;
 }
 .user-button {
     padding: 12px;
     color: #f30;
+}
+.user-button:hover {
+    cursor: pointer;
 }
 
 #allbuttons {
@@ -85,7 +93,6 @@
     font-size: 0.75429em;
     letter-spacing: .08em;
     outline: 0;
-    cursor: pointer;
 }
 
 
@@ -103,7 +110,7 @@
     margin-right: 10px;
     padding-right: 10px;
 }
-hr {
+.nav > hr {
     display: block;
     height: 0px;
     border-top: 1.8px solid #f30;

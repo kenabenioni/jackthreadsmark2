@@ -8,6 +8,11 @@
 .clothing-individual {
     padding: 10px;
 }
+
+a {
+    color: black;
+}
+
 .clothing-individual:hover {
     cursor: pointer;
 }

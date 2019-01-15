@@ -4,7 +4,6 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-solid-svg-icons';
 import {faShoppingBag} from '@fortawesome/free-solid-svg-icons';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
 
@@ -15,10 +14,21 @@ class Nav extends Component {
       user: {}
     };
   }
-  
+  // async componentDidMount(){
+  //   let res = await axios.get('/api/user-data')
+  //   this.setState({user: res.data})
+  // }
+
+  login(){
+    let {REACT_APP_DOMAIN, REACT_APP_CLIENT_ID} = process.env;
+
+    let url = `${encodeURIComponent(window.location.origin)}/auth/callback`
+
+    window.location = `https://${REACT_APP_DOMAIN}/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${url}&response_type=code`
+  }
 
   render() {
-
+    const { setToggle } = this.props;
     return (
       <div className="nav">
       <h3 className="top-nav"><strong>FREE SHIPPING </strong>ON ORDERS OVER $80</h3>
@@ -48,7 +58,7 @@ class Nav extends Component {
               />
             </Link>
             <div className="leftbuttons">
-              <button className="left-button" id="allbuttons">
+              <button className="left-buttons" id="allbuttons">
                 New
               </button>
               <Link to={"/clothing"}>
@@ -56,13 +66,13 @@ class Nav extends Component {
                   Clothing
                 </button>
               </Link>
-              <button className="left-button" id="allbuttons">
+              <button className="left-buttons" id="allbuttons">
                 Shoes
               </button>
-              <button className="left-button" id="allbuttons">
+              <button className="left-buttons" id="allbuttons">
                 Accessories
               </button>
-              <button className="left-button" id="allbuttons">
+              <button className="left-buttons" id="allbuttons">
                 Sale
               </button>
             </div>
@@ -71,10 +81,10 @@ class Nav extends Component {
             <input type="text" placeholder="Search" className="navinput" />
               <div>
                 {/* <button onClick={this.login} id="allbuttons" className="loginbutton">Login</button> */}
-                <FontAwesomeIcon icon={faUser} size="lg" onClick={this.login} className="user-button"/>
+                <FontAwesomeIcon icon={faUser} size="lg" className="user-button"/>
               </div>
             
-                <FontAwesomeIcon icon={faShoppingBag} size="lg" className="user-button"/>
+                <FontAwesomeIcon icon={faShoppingBag} size="lg" className="user-button" onClick={setToggle}/>
               {/* <button id="allbuttons" className="bag">Bag</button> */}
           </div>
         </div>
