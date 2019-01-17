@@ -3,7 +3,7 @@ const express = require("express"),
   massive = require("massive"),
   session = require("express-session"),
   ctrl = require('./controller.js');
-  let {MY_URL, SESSION_SECRET, REACT_APP_DOMAIN, REACT_APP_CLIENT_ID, CLIENT_SECRET} = process.env;
+  let {MY_URL, SESSION_SECRET, REACT_APP_DOMAIN, REACT_APP_CLIENT_ID, CLIENT_SECRET, LOCAL_HOST} = process.env;
 
   const app = express();
   const PORT = 3007;
@@ -16,41 +16,38 @@ const express = require("express"),
       saveUninitialized: true
     })
   );
+  app.use( express.static( `${__dirname}/../build` ) );
 
-  app.get("/auth/callback", async (req, res) => {
+  app.get('/auth/callback', async (req, res) => {
+    // req.query = { code: someValue } ---> req.query.code
     let payload = {
       client_id: REACT_APP_CLIENT_ID,
       client_secret: CLIENT_SECRET,
       code: req.query.code,
-      grant_type: "authorization_code",
+      grant_type: 'authorization_code',
       redirect_uri: `http://${req.headers.host}/auth/callback`
-    };
-    let resWithToken = await axios.post(
-      `https://${REACT_APP_DOMAIN}/oauth/token`,
-      payload
-    );
+    }
   
-    let resWithUserData = await axios.get(
-      `https://${REACT_APP_DOMAIN}/userinfo/?access_token=${
-        resWithToken.data.access_token
-      }`
-    );
+    // post request for access token, send code in body of request
+    let resWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload);
+    // get request for user data, send access token
+    let resWithUserData = await axios.get(`https://${REACT_APP_DOMAIN}/userinfo?access_token=${resWithToken.data.access_token}`)
+  
     req.session.user = resWithUserData.data;
-    console.log(req.session.user);
-    res.redirect("/");
-  });
+    res.redirect('/')
+  })
   
-  app.get("/api/user-data", (req, res) => {
+  app.get('/api/user-data', (req, res) => {
     if (req.session.user) {
       res.status(200).send(req.session.user);
     } else {
-      res.status(401).send("bob marley");
+      res.status(401).send('Shnopes')
     }
-  });
+  })
   
-  app.get('/logout', (req, res)=>{
-      req.session.destroy();
-      res.redirect('http://localhost:3000/#/')
+  app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect(LOCAL_HOST)
   })
   
   massive(MY_URL).then(db => {

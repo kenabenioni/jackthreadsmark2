@@ -14,13 +14,16 @@ class Nav extends Component {
       user: {}
     };
   }
-  // async componentDidMount(){
-  //   let res = await axios.get('/api/user-data')
-  //   this.setState({user: res.data})
-  // }
+  async componentDidMount() {
+    let res = await axios.get('/api/user-data')
+    this.setState({ user: res.data })
+  }
 
-  login(){
-    let {REACT_APP_DOMAIN, REACT_APP_CLIENT_ID} = process.env;
+  login() {
+    let {
+      REACT_APP_DOMAIN,
+      REACT_APP_CLIENT_ID
+    } = process.env;
 
     let url = `${encodeURIComponent(window.location.origin)}/auth/callback`
 
