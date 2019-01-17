@@ -62,7 +62,7 @@ class Nav extends Component {
             </Link>
             <div className="leftbuttons">
               <button className="left-buttons" id="allbuttons">
-                New
+                In Progress
               </button>
               <Link to={"/clothing"}>
                 <button className="left-button" id="allbuttons">
@@ -70,13 +70,13 @@ class Nav extends Component {
                 </button>
               </Link>
               <button className="left-buttons" id="allbuttons">
-                Shoes
+              In Progress
               </button>
               <button className="left-buttons" id="allbuttons">
-                Accessories
+              In Progress
               </button>
               <button className="left-buttons" id="allbuttons">
-                Sale
+              In Progress
               </button>
             </div>
           </div>
